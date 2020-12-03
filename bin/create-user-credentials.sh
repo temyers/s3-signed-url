@@ -1,0 +1,1 @@
+aws iam create-access-key --user-name $1

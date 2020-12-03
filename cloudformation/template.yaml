@@ -1,0 +1,23 @@
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+  MyUser:
+    Type: AWS::IAM::User
+    Properties:
+      Policies:
+        - PolicyName: GrantS3ReadWrite
+          PolicyDocument:
+            Statement:
+              - Effect: "Allow"
+                Action: 
+                  - "s3:GetObject"
+                  - "s3:PutObject"
+                Resource: 
+                    - !Sub "arn:aws:s3:::${MyBucket}/*"
+Outputs:
+  S3Bucket:
+    Description: The S3 Bucket
+    Value: !Ref MyBucket
+  User:
+    Description: the user
+    Value: !Ref MyUser

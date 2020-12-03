@@ -1,0 +1,1 @@
+aws s3 cp test-file.txt s3://$1
